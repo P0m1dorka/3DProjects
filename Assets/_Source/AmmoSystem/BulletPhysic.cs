@@ -11,14 +11,12 @@ public class BulletPhysic : MonoBehaviour
         get;
         set;
     }
-
     [field: SerializeField]
     private float speed
     {
         get;
         set;
     }
-
     [field: SerializeField]
     private Rigidbody rb
     {
@@ -29,10 +27,11 @@ public class BulletPhysic : MonoBehaviour
     {
         MoveForward();
         StartCoroutine(Life());
+        
     }
     private void MoveForward()
     {
-      rb.AddForce(Vector3.forward*speed,ForceMode.Impulse);
+      rb.AddForce(Vector3.forward*speed, ForceMode.Impulse);
     }
 
     private IEnumerator Life()

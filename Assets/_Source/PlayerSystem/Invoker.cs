@@ -23,7 +23,6 @@ public class Invoker
     {
         _playerMovement.Jump(_player.rb,_player.jumpSpeed);
     }
-
     public void Rotate(float horizontal)
     {
         _playerMovement.Rotate(_player.rb,horizontal,_player.rotSpeed);
