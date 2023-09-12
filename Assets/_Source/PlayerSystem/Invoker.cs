@@ -7,11 +7,11 @@ public class Invoker
     private PlayerMovement _playerMovement;
     private Player _player;
     private PlayerCombat playerCombat;
-    private BulletPhysic _bullet;
-    public Invoker(Player player, BulletPhysic bull)
+
+    public Invoker(Player player)
     {
         _player = player;
-        _bullet = bull;
+        
         _playerMovement = new PlayerMovement();
         playerCombat = new PlayerCombat();
     }

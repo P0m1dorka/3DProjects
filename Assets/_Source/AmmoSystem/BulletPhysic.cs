@@ -30,7 +30,7 @@ public class BulletPhysic : MonoBehaviour
         MoveForward();
         StartCoroutine(Life());
     }
-    public void MoveForward()
+    private void MoveForward()
     {
       rb.AddForce(Vector3.forward*speed,ForceMode.Impulse);
     }

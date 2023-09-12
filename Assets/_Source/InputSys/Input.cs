@@ -10,13 +10,13 @@ public class Input : MonoBehaviour
     private float _x;
     private float _v;
     private Invoker _invoker;
-   [SerializeField] private bool _input = true;
+   [SerializeField] private bool _input ;
    [SerializeField] private Player _player;
-   [SerializeField] private BulletPhysic _bullet;
+   
    [SerializeField] private TMP_Text _text;
     private void Awake()
     {
-        _invoker = new Invoker(_player,_bullet);
+        _invoker = new Invoker(_player);
     }
     void Update()
     {
@@ -40,7 +40,7 @@ public class Input : MonoBehaviour
             _input = false;
             _text.text = "Input = false";
         }
-        else if (UnityEngine.Input.GetKeyDown(KeyCode.Return) && !_input)
+        else if ((UnityEngine.Input.GetKeyDown(KeyCode.Return) || UnityEngine.Input.GetButtonUp("Fire1")) && !_input)
         {
             _input = true;
             _text.text = "Input = true";
