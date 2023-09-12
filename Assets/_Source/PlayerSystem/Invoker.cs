@@ -6,11 +6,14 @@ public class Invoker
 {
     private PlayerMovement _playerMovement;
     private Player _player;
-    
-    public Invoker(Player player)
+    private PlayerCombat playerCombat;
+    private BulletPhysic _bullet;
+    public Invoker(Player player, BulletPhysic bull)
     {
         _player = player;
+        _bullet = bull;
         _playerMovement = new PlayerMovement();
+        playerCombat = new PlayerCombat();
     }
     public void Move(float horizontal,float vertical)
     {
@@ -24,5 +27,9 @@ public class Invoker
     public void Rotate(float horizontal)
     {
         _playerMovement.Rotate(_player.rb,horizontal,_player.rotSpeed);
+    }
+    public void Shoot()
+    {
+        playerCombat.Shoot(_player.bulletSpawn,_player.bulletPref);
     }
 }

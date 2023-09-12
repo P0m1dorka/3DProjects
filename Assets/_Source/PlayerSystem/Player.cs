@@ -5,6 +5,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [field: SerializeField]
+    public GameObject bulletPref
+    {
+        get;
+        set;
+    }
+    [field: SerializeField]
+    public Transform bulletSpawn
+    {
+        get;
+        set;
+    }
     
     [field: SerializeField]
     public Rigidbody rb

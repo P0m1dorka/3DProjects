@@ -12,10 +12,11 @@ public class Input : MonoBehaviour
     private Invoker _invoker;
    [SerializeField] private bool _input = true;
    [SerializeField] private Player _player;
+   [SerializeField] private BulletPhysic _bullet;
    [SerializeField] private TMP_Text _text;
     private void Awake()
     {
-        _invoker = new Invoker(_player);
+        _invoker = new Invoker(_player,_bullet);
     }
     void Update()
     {
@@ -23,6 +24,7 @@ public class Input : MonoBehaviour
         {
             Move();
             Jump();
+            Shoot();
         }
         else
         {
@@ -61,6 +63,11 @@ public class Input : MonoBehaviour
     private void Rotate(float horizontal)
     {
         _invoker.Rotate(horizontal);
+    }
+    private void Shoot()
+    {
+        if(UnityEngine.Input.GetKeyUp(KeyCode.Q))
+            _invoker.Shoot();
     }
     
 }
