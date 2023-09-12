@@ -1,20 +1,33 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace PlayerSystem
+public class Player : MonoBehaviour
 {
-   [RequireComponent(typeof(Rigidbody))]
-    public class Player : MonoBehaviour
+    
+    [field: SerializeField]
+    public Rigidbody rb
     {
-        [field: SerializeField] public float movementSpeed { get; private set; }
-        [field: SerializeField] public Rigidbody Rb { get; set; }
-        [SerializeField] private float rotationSpeed;
-        [SerializeField] private float jumpForce;
-        [field: SerializeField] public Transform firePoint { get; private set; }
-        [field: SerializeField] public GameObject bulletPrefab { get; private set; }
-        private void Awake()
-        {
-            Rb = GetComponent<Rigidbody>();
-        }
+        get;
+        private set;
+    }
+    [field: SerializeField]
+    public float speed
+    {
+        get;
+        set;
+    }
+    [field: SerializeField]
+    public float jumpSpeed
+    {
+        get;
+        set;
+    }
+    [field: SerializeField]
+    public float rotSpeed
+    {
+        get;
+        set;
     }
 }

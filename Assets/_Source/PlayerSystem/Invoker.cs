@@ -1,23 +1,28 @@
-namespace PlayerSystem
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+public class Invoker
 {
-    public class Invoker
+    private PlayerMovement _playerMovement;
+    private Player _player;
+    
+    public Invoker(Player player)
     {
-        private PlayerMovement _playerMovement;
-        private Player _player;
-        private PlayerCombat _playerCombat;
-        public Invoker(Player player)
-        {
-            _player = player;
-            _playerMovement = new PlayerMovement();
-            _playerCombat = new PlayerCombat();
-        }
-        public void Move(float inputH, float inputV)
-        {
-         _playerMovement.Move(_player.Rb,_player.movementSpeed,inputH,inputV);   
-        }
-        public void Shoot()
-        {
-            _playerCombat.Shoot(_player.firePoint,_player.bulletPrefab);
-        }
+        _player = player;
+        _playerMovement = new PlayerMovement();
+    }
+    public void Move(float horizontal,float vertical)
+    {
+        _playerMovement.Move(_player.rb,_player.speed,horizontal,vertical);
+    }
+    public void Jump()
+    {
+        _playerMovement.Jump(_player.rb,_player.jumpSpeed);
+    }
+
+    public void Rotate(float horizontal)
+    {
+        _playerMovement.Rotate(_player.rb,horizontal,_player.rotSpeed);
     }
 }
